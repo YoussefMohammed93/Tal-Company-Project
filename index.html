@@ -21,6 +21,7 @@
     <title>Tal - Home</title>
   </head>
   <body>
+    <!-- Header -->
     <header
       class="w-full h-[75px] fixed inset-0 z-50 border-b shadow-sm bg-white"
     >
@@ -30,7 +31,7 @@
         <div>
           <a href="/">
             <img
-              src="images/logo.png"
+              src="assets/logo.png"
               alt="Tal Company Logo"
               width="150px"
               height="150px"
@@ -43,7 +44,7 @@
           aria-label="Toggle menu"
         >
           <svg
-            class="size-8 text-gray-600"
+            class="size-8 text-slate-700"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -65,17 +66,17 @@
               <a href="/"> الرئيسية </a>
             </li>
             <li
-              class="text-lg font-semibold hover:text-[#0094d9] transition-all duration-200"
+              class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
             >
               <a href="/"> من نحن </a>
             </li>
             <li
-              class="text-lg font-semibold hover:text-[#0094d9] transition-all duration-200"
+              class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
             >
               <a href="/"> خدماتنا </a>
             </li>
             <li
-              class="text-lg font-semibold hover:text-[#0094d9] transition-all duration-200"
+              class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
             >
               <a href="/"> تواصل معنا </a>
             </li>
@@ -83,9 +84,9 @@
               class="text-lg font-semibold hover:bg-[#f0f2f6] mr-10 py-1 px-3 rounded-md transition-all duration-200"
             >
               <button class="flex items-center gap-x-2">
-                <span>English</span>
+                <span class="text-slate-700">English</span>
                 <img
-                  src="images/english.png"
+                  src="assets/english.png"
                   class="object-cover"
                   alt="english-lang"
                   width="34px"
@@ -97,6 +98,7 @@
         </nav>
       </div>
     </header>
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
       <div
         id="menu-overlay"
@@ -108,11 +110,11 @@
       >
         <button
           id="menu-close"
-          class="absolute top-4 left-4 text-xl text-gray-600 hover:text-black focus:outline-none"
+          class="absolute top-4 left-4 text-xl text-slate-700 hover:text-black focus:outline-none"
           aria-label="Close menu"
         >
           <svg
-            class="size-8 text-gray-600"
+            class="size-8 text-slate-700"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -136,17 +138,17 @@
             <a href="/"> الرئيسية </a>
           </li>
           <li
-            class="text-lg font-semibold hover:text-[#0094d9] transition-all duration-200"
+            class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
           >
             <a href="/"> من نحن </a>
           </li>
           <li
-            class="text-lg font-semibold hover:text-[#0094d9] transition-all duration-200"
+            class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
           >
             <a href="/"> خدماتنا </a>
           </li>
           <li
-            class="text-lg font-semibold hover:text-[#0094d9] transition-all duration-200"
+            class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
           >
             <a href="/"> تواصل معنا </a>
           </li>
@@ -154,9 +156,9 @@
             class="w-[125px] text-lg font-semibold underline rounded-md transition-all duration-200"
           >
             <button class="flex items-center gap-x-2">
-              <span>English</span>
+              <span class="text-slate-700">English</span>
               <img
-                src="images/english.png"
+                src="assets/english.png"
                 class="object-cover"
                 alt="english-lang"
                 width="34px"
@@ -167,6 +169,42 @@
         </ul>
       </nav>
     </div>
+    <!-- Main Section -->
+    <section class="flex items-center justify-center h-screen">
+      <div class="relative w-full h-full overflow-hidden">
+        <video
+          autoplay
+          loop
+          muted
+          class="w-full object-cover"
+          style="height: 100vh"
+          poster="assets/poster.jpg"
+        >
+          <source src="assets/vid.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div
+          class="absolute inset-0 bg-black/20 backdrop-blur-sm backdrop-brightness-50 pointer-events-none"
+        ></div>
+        <div
+          class="w-full px-5 pt-10 absolute flex flex-col text-center space-y-10 items-center justify-center z-[10]"
+          style="left: 50%; top: 50%; transform: translate(-50%, -50%)"
+        >
+          <h1
+            class="text-4xl lg:text-6xl xl:text-7xl font-bold md:font-black text-white"
+          >
+            شركة طال للمقاولات
+          </h1>
+          <p
+            class="max-w-5xl text-lg md:text-xl lg:text-2xl font-semibold md:font-bold text-white"
+            style="line-height: 45px"
+          >
+            نلتزم بالمحافظة على البيئة والمجتمعات من خلال ممارسات مستدامة تجعل
+            المستقبل أفضل للأجيال الحالية والقادمة .
+          </p>
+        </div>
+      </div>
+    </section>
   </body>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
