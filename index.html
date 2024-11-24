@@ -579,6 +579,26 @@
         </div>
       </div>
     </section>
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollToTopBtn"
+      class="fixed bottom-5 right-[-80px] z-[49] p-3 bg-slate-200 hover:bg-slate-300/70 border border-gray-300 duration-300 ease-in-out rounded-full transition-all"
+    >
+      <img src="assets/arrowtop-icon.png" alt="arrowtop-icon" class="size-8" />
+    </button>
+    <!-- Whatsapp Button -->
+    <button class="fixed bottom-5 left-5">
+      <a
+        href="https://wa.me/+201096030194"
+        class="flex items-center justify-center p-3 bg-green-500 rounded-full shadow-lg hover:bg-green-600/90 transition-all duration-200"
+      >
+        <img
+          src="assets/whatsapp-icon.png"
+          alt="whatsapp-icon"
+          class="size-8"
+        />
+      </a>
+    </button>
   </body>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -607,6 +627,23 @@
       menuToggle.addEventListener("click", openMenu);
       menuClose.addEventListener("click", closeMenu);
       menuOverlay.addEventListener("click", closeMenu);
+    });
+
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 80) {
+        scrollToTopBtn.style.right = "20px";
+      } else {
+        scrollToTopBtn.style.right = "-80px";
+      }
+    });
+
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
   </script>
 </html>
