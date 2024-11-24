@@ -31,7 +31,8 @@
   <body>
     <!-- Header -->
     <header
-      class="w-full h-[75px] fixed inset-0 z-50 border-b shadow-sm bg-white"
+      class="w-full fixed top-0 left-0 z-50 bg-white shadow-md border-b transition-transform duration-300 ease-in-out"
+      id="site-header"
     >
       <div
         class="w-full max-w-7xl px-5 mx-auto flex items-center justify-between"
@@ -78,20 +79,25 @@
             <li
               class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
             >
-              <a href="/"> من نحن </a>
+              <a href="#about"> من نحن </a>
             </li>
             <li
               class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
             >
-              <a href="/"> خدماتنا </a>
+              <a href="#goals">أهدافنا</a>
             </li>
             <li
               class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
             >
-              <a href="/"> تواصل معنا </a>
+              <a href="#services"> خدماتنا </a>
             </li>
             <li
-              class="text-lg font-semibold hover:bg-[#f0f2f6] mr-10 py-1 px-3 rounded-md transition-all duration-200"
+              class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
+            >
+              <a href="#contact"> تواصل معنا </a>
+            </li>
+            <li
+              class="text-lg font-semibold hover:bg-[#f0f2f6] mr-8 py-1 px-3 rounded-md transition-all duration-200"
             >
               <button class="flex items-center gap-x-2">
                 <span class="text-slate-700">English</span>
@@ -150,17 +156,22 @@
           <li
             class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
           >
-            <a href="/"> من نحن </a>
+            <a href="#about"> من نحن </a>
           </li>
           <li
             class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
           >
-            <a href="/"> خدماتنا </a>
+            <a href="#goals"> أهدافنا </a>
           </li>
           <li
             class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
           >
-            <a href="/"> تواصل معنا </a>
+            <a href="#services"> خدماتنا </a>
+          </li>
+          <li
+            class="text-lg font-semibold text-slate-700 hover:text-[#0094d9] transition-all duration-200"
+          >
+            <a href="#contact"> تواصل معنا </a>
           </li>
           <li
             class="w-[125px] text-lg font-semibold underline rounded-md transition-all duration-200"
@@ -216,7 +227,7 @@
       </div>
     </section>
     <!-- About Section -->
-    <section class="bg-slate-100 border-b">
+    <section id="about" class="bg-slate-100 border-b">
       <div class="w-full max-w-7xl px-5 mx-auto py-12">
         <h2
           class="text-3xl sm:text-4xl md:text-5xl font-semibold sm:font-bold text-slate-700"
@@ -251,7 +262,7 @@
       </div>
     </section>
     <!-- Goals Section -->
-    <section class="border-b">
+    <section id="goals" class="border-b">
       <div class="w-full max-w-7xl px-5 mx-auto py-12">
         <h2
           class="text-center text-3xl sm:text-4xl md:text-5xl font-semibold sm:font-bold text-slate-700"
@@ -352,7 +363,7 @@
       </div>
     </section>
     <!-- Services Section -->
-    <section class="bg-slate-100 border-b">
+    <section id="services" class="bg-slate-100 border-b">
       <div class="w-full max-w-7xl px-5 mx-auto py-12">
         <h2
           class="text-center text-3xl sm:text-4xl md:text-5xl font-semibold sm:font-bold text-slate-700"
@@ -774,7 +785,7 @@
     <!-- Whatsapp Button -->
     <button class="fixed bottom-5 left-5 z-[49]">
       <a
-        href="https://wa.me/+201096030194"
+        href="https://wa.me/"
         class="flex items-center justify-center p-3 bg-green-500 rounded-full shadow-lg hover:bg-green-600/90 transition-all duration-200"
       >
         <img
@@ -812,6 +823,21 @@
       menuToggle.addEventListener("click", openMenu);
       menuClose.addEventListener("click", closeMenu);
       menuOverlay.addEventListener("click", closeMenu);
+
+      const navLinks = document.querySelectorAll("#nav-menu a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+
+            closeMenu();
+          }
+        });
+      });
     });
 
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -829,6 +855,21 @@
         top: 0,
         behavior: "smooth",
       });
+    });
+
+    const header = document.getElementById("site-header");
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        header.style.transform = "translateY(-100%)";
+      } else {
+        header.style.transform = "translateY(0)";
+      }
+
+      lastScrollY = currentScrollY;
     });
   </script>
 </html>
