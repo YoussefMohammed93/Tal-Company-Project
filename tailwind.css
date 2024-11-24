@@ -10,3 +10,25 @@ body {
   direction: rtl;
   font-family: "Cairo", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #0094d9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0076ac;
+}
+
+.relative.z-10 p {
+  max-height: 115px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
